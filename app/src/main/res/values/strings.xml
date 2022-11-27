@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">RU_Pizzeria_Android</string>
+    <string name="app_name">RU Pizzeria</string>
+    <string-array name="itemNames">
+        <item>Chicago Style Pizza</item>
+        <item>New York Style Pizza</item>
+        <item>Current Order</item>
+        <item>Store Orders</item>
+    </string-array>
 </resources>
