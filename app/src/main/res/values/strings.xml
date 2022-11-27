@@ -1,9 +1,18 @@
 <resources>
     <string name="app_name">RU Pizzeria</string>
     <string-array name="itemNames">
-        <item>Chicago Style Pizza</item>
-        <item>New York Style Pizza</item>
-        <item>Current Order</item>
-        <item>Store Orders</item>
+        <item>Sausage</item>
+        <item>BBQ Chicken</item>
+        <item>Beef</item>
+        <item>Ham</item>
+        <item>Pepperoni</item>
+        <item>Green Pepper</item>
+        <item>Onion</item>
+        <item>Mushroom</item>
+        <item>Provolone</item>
+        <item>Cheddar</item>
+        <item>Olive</item>
+        <item>Pineapple</item>
+        <item>Bacon</item>
     </string-array>
 </resources>

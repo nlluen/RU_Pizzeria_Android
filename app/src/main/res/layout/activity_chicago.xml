@@ -12,7 +12,7 @@
         android:layout_height="22dp"
         android:layout_marginStart="11dp"
         android:layout_marginTop="16dp"
-        android:text="Choose chicago pizza flavor"
+        android:text="Choose Chicago pizza flavor"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
