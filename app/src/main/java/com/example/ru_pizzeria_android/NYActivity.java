@@ -7,13 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class ChicagoActivity extends AppCompatActivity {
+public class NYActivity extends AppCompatActivity {
     private Button mm_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chicago);
-        mm_btn = (Button) findViewById(R.id.mm_button);
+        setContentView(R.layout.activity_ny);
+        mm_btn = (Button) findViewById(R.id.mm_btn);
         mm_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

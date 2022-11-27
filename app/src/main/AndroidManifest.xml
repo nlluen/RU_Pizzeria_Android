@@ -13,6 +13,27 @@
         android:theme="@style/Theme.RU_Pizzeria_Android"
         tools:targetApi="31">
         <activity
+            android:name=".CurrentOrderActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".StoreOrderActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".NYActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ChicagoActivity"
             android:exported="false">
             <meta-data
