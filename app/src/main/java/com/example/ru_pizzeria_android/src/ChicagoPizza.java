@@ -1,15 +1,16 @@
 /**
- * The NYPizza class implements the PizzaFactory interface and initializes four different
+ * The ChicagoPizza class implements the PizzaFactory interface and initializes four different
  * types of pizza flavors.
  * @author Nick Lluen, Ahnaf Rashid
  */
-package src;
+package com.example.ru_pizzeria_android.src;
 
-public class NYPizza implements PizzaFactory{
+public class ChicagoPizza implements PizzaFactory{
+
     /**
-   Initializes a Deluxe Pizza object
-   @return Pizza will return the Deluxe Pizza object
-    */
+     Initializes a Deluxe Pizza object
+     @return Pizza will return the Deluxe Pizza object
+     */
     @Override
     public Pizza createDeluxe() {
         Pizza deluxePizza = new Deluxe();

@@ -1,4 +1,4 @@
-package src;
+package com.example.ru_pizzeria_android.src;
 
 import java.io.File;
 import java.io.FileNotFoundException;

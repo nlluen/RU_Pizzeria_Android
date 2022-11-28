@@ -7,11 +7,63 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.ru_pizzeria_android.src.Order;
+import com.example.ru_pizzeria_android.src.Pizza;
+import com.example.ru_pizzeria_android.src.StoreOrder;
+
 public class MainActivity extends AppCompatActivity {
     private Button chicago_btn;
     private Button ny_btn;
     private Button store_order_btn;
     private Button order_btn;
+    private int orderNum = 1;
+    private Order pizzaOrder = new Order(orderNum);
+    private StoreOrder totalOrders = new StoreOrder();
+
+    /**
+     * Getter for order.
+     *
+     * @return
+     */
+    public Order getPizzaOrder() {
+        return pizzaOrder;
+    }
+
+    /**
+     * Adds the pizza from either chicago or new york view to the current order.
+     *
+     * @param pizza
+     */
+    public void addOrder(Pizza pizza) {
+        pizzaOrder.add(pizza);
+    }
+
+    /**
+     * When current order is placed it resets and adds the new space on the store
+     * order list.
+     */
+    public void newOrder() {
+        orderNum += 1;
+        pizzaOrder = new Order(orderNum);
+    }
+
+    /**
+     * Add current order to store orders.
+     *
+     * @param pizza_Order
+     */
+    public void addStoreOrders(Order pizza_Order) {
+        totalOrders.add(pizza_Order);
+    }
+
+    /**
+     * Getter for the list of store orders.
+     *
+     * @return
+     */
+    public StoreOrder getTotalOrders() {
+        return totalOrders;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

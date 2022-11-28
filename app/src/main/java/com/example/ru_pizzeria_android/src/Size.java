@@ -2,7 +2,7 @@
  * The Size class is meant to initialize and return the size of the pizza
  * @author Nick Lluen, Ahnaf Rashid
  */
-package src;
+package com.example.ru_pizzeria_android.src;
 
 public class Size {
     private String sizes;

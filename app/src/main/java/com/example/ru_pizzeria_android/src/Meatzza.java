@@ -1,37 +1,26 @@
-/**
- * THe BBQChicken class is meant to extend the Pizza class because it is a type of pizza.
- * This class overrides methods in the Pizza class in order to add and remove toppings. The
- * method will also calculate the correct price depending on size.
- * @author Nick Lluen, Ahnaf Rashid
- */
+package com.example.ru_pizzeria_android.src;
 
-package src;
+public class Meatzza extends Pizza{
+    private String[] toppingsList = new String[] {"sausage","pepperoni","beef","ham"};
 
-
-
-public class BBQChicken extends Pizza{
-    private String[] toppingsList = new String[] {"bbq_chicken","green_pepper","provolone","cheddar"};
-
-    /*
-    Initializes the pizza to have the 4 preset toppings for BBQChicken and set it to be size small by default
-     */
-    public BBQChicken(){
+    public Meatzza(){
         for(int i = 0; i < toppingsList.length; i++){
             getToppings().add(Topping.valueOf(toppingsList[i]));
         }
         super.setSize("small");
     }
 
-/**
-    This method will add the selected topping to the pizza
-    @param obj The topping that is selected in the interface
-    @return true if the topping has been added
- */
+    /**
+     This method will add the selected topping to the pizza
+     @param obj The topping that is selected in the interface
+     @return true if the topping has been added
+     */
     @Override
     public boolean add(Object obj) {
         getToppings().add(Topping.valueOf((String) obj));
         return true;
     }
+
     /**
      This method will remove the selected topping from the pizza
      @param obj The topping that is selected in the interface
@@ -45,17 +34,17 @@ public class BBQChicken extends Pizza{
 
     /**
      This method will calculate the price of the pizza depending on the size selected
-     @return double value of the price calculated
+     @return double value of the price calculate
      */
     @Override
     public double price() {
         double price = 0;
         if(getSize().equals("small")){
-            price = 13.99;
-        } else if (getSize().equals("medium")) {
             price = 15.99;
-        } else if (getSize().equals("large")) {
+        } else if (getSize().equals("medium")) {
             price = 17.99;
+        } else if (getSize().equals("large")) {
+            price = 19.99;
         }
         return price;
     }
@@ -66,7 +55,7 @@ public class BBQChicken extends Pizza{
      */
     @Override
     public String getPizza(){
-        String fullPizza = "BBQ Chicken";
+        String fullPizza = "Meatzza";
         fullPizza = fullPizza + super.getPizza();
         return fullPizza;
     }

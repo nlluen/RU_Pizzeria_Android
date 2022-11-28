@@ -4,7 +4,7 @@
  * calculate the total price of the entire order.
  * @author Nick Lluen, Ahnaf Rashid
  */
-package src;
+package com.example.ru_pizzeria_android.src;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

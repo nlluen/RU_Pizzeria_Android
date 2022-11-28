@@ -13,13 +13,13 @@ public class CurrentOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_order);
-        mm_btn = (Button) findViewById(R.id.mm_btn);
-        mm_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openMainActivity();
-            }
-        });
+//        mm_btn = (Button) findViewById(R.id.mm_btn);
+//        mm_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openMainActivity();
+//            }
+//        });
     }
 
     public void openMainActivity() {

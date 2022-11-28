@@ -3,7 +3,7 @@
  * flavor/types so that the Pizza classes can implement it.
  * @author Nick Lluen, Ahnaf Rashid
  */
-package src;
+package com.example.ru_pizzeria_android.src;
 
 public interface PizzaFactory {
     /**

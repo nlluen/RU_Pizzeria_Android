@@ -3,7 +3,7 @@
  * by the different types of Pizza classes
  * @author Nick Lluen, Ahnaf Rashid
  */
-package src;
+package com.example.ru_pizzeria_android.src;
 
 public interface Customizable<E> {
 
