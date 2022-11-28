@@ -18,9 +18,9 @@ public class ToppingsActivity extends AppCompatActivity {
      *  ID is consistent with the index of the associated menu item in the ArrayList.
      *  An image resource could also be an URI.
      */
-    private int [] itemImages = {R.drawable.apple, R.drawable.banana, R.drawable.grapes,
-            R.drawable.mango, R.drawable.orange, R.drawable.peach, R.drawable.pineapple,
-            R.drawable.strawberry};
+    private int [] itemImages = {R.drawable.sausage, R.drawable.bbq_chicken, R.drawable.beef,
+            R.drawable.ham, R.drawable.pepperoni, R.drawable.green_pepper, R.drawable.onion,
+            R.drawable.mushroom,R.drawable.provolone,R.drawable.cheddar,R.drawable.olive,R.drawable.pineapple,R.drawable.bacon};
 
     /**
      * Get the references of all instances of Views defined in the layout file, set up the list of
