@@ -26,6 +26,7 @@ public class ChicagoActivity extends AppCompatActivity {
         flavSpinner.setAdapter(adapter);
         sizeSpinner = findViewById(R.id.size);
         sizeAdapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,sizes);
+        sizeSpinner.setAdapter(sizeAdapter);
         mm_btn = (Button) findViewById(R.id.mm_button);
         mm_btn.setOnClickListener(new View.OnClickListener() {
             @Override
