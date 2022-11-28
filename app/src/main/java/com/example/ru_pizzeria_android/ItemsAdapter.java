@@ -126,6 +126,9 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder>{
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(itemView.getContext(),
                                     tv_name.getText().toString() + " added.", Toast.LENGTH_LONG).show();
+
+
+
                         }
                         //handle the "NO" click
                     }).setNegativeButton("no", new DialogInterface.OnClickListener() {
