@@ -51,7 +51,7 @@ public class ChicagoActivity extends AppCompatActivity {
     }
 
     public void openToppingsActivity() {
-        Intent intent = new Intent(this, ToppingsActivity.class);
+        Intent intent = new Intent(this, MainActivity2.class);
         startActivity(intent);
     }
 }
