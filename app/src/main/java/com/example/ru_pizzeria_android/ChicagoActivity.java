@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 public class ChicagoActivity extends AppCompatActivity {
-    private Button mm_btn;
+    private Button mm_btn, topping_btn;
     private Spinner flavSpinner, sizeSpinner;
     private String [] flavors = {"Deluxe", "BBQ Chicken", "Meatzza", "Build Your Own"};
     private String [] sizes = {"Small","Medium","Large"};
@@ -34,8 +34,15 @@ public class ChicagoActivity extends AppCompatActivity {
                 openMainActivity();
             }
         });
-    }
 
+        topping_btn = (Button) findViewById(R.id.toppings);
+        topping_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openToppingsActivity();
+            }
+        });
+    }
 
 
     public void openMainActivity() {
@@ -43,7 +50,7 @@ public class ChicagoActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openToppings() {
+    public void openToppingsActivity() {
         Intent intent = new Intent(this, ToppingsActivity.class);
         startActivity(intent);
     }
