@@ -1,14 +1,15 @@
 package com.example.ru_pizzeria_android;
 
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Bundle;
+
 import java.util.ArrayList;
 
 public class ToppingsActivity extends AppCompatActivity {
+
     //Declare an instance of ArrayList to hold the items to be display with the RecyclerView
     private ArrayList<Item> items = new ArrayList<>();
     /* All the images associated with the menu items are stored in the res/drawable folder
@@ -17,9 +18,9 @@ public class ToppingsActivity extends AppCompatActivity {
      *  ID is consistent with the index of the associated menu item in the ArrayList.
      *  An image resource could also be an URI.
      */
-    private int [] itemImages = {R.drawable.sausage, R.drawable.bbq_chicken, R.drawable.beef,
-            R.drawable.ham, R.drawable.pepperoni, R.drawable.green_pepper, R.drawable.onion,
-            R.drawable.mushroom,R.drawable.provolone,R.drawable.cheddar,R.drawable.olive,R.drawable.pineapple,R.drawable.bacon};
+    private int [] itemImages = {R.drawable.apple, R.drawable.banana, R.drawable.grapes,
+            R.drawable.mango, R.drawable.orange, R.drawable.peach, R.drawable.pineapple,
+            R.drawable.strawberry};
 
     /**
      * Get the references of all instances of Views defined in the layout file, set up the list of
@@ -53,7 +54,7 @@ public class ToppingsActivity extends AppCompatActivity {
          * data sources.
          */
         for (int i = 0; i < itemNames.length; i++) {
-            items.add(new Item(itemNames[i], itemImages[i], "$1.59"));
+            items.add(new Item(itemNames[i], itemImages[i], "$1.39"));
         }
     }
 }
