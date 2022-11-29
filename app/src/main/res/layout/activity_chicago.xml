@@ -10,7 +10,7 @@
         android:id="@+id/textView"
         android:layout_width="200dp"
         android:layout_height="22dp"
-        android:layout_marginStart="11dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="Choose Chicago pizza flavor"
         android:textSize="16sp"
@@ -33,18 +33,18 @@
         android:id="@+id/size"
         android:layout_width="257dp"
         android:layout_height="37dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pizza_flavor" />
 
     <ListView
         android:id="@+id/selected_toppings"
-        android:layout_width="339dp"
-        android:layout_height="345dp"
+        android:layout_width="355dp"
+        android:layout_height="346dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -55,19 +55,18 @@
         android:id="@+id/toppings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="9dp"
         android:text="Select Toppings"
-        app:layout_constraintBottom_toTopOf="@+id/selected_toppings"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/crust_type" />
 
     <Button
         android:id="@+id/order"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="37dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="36dp"
         android:text="Add to Order"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selected_toppings" />
@@ -76,21 +75,46 @@
         android:id="@+id/pizza_price"
         android:layout_width="96dp"
         android:layout_height="27dp"
-        android:layout_marginBottom="51dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="30dp"
         android:text="Price"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="35dp" />
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/order"
+        app:layout_constraintTop_toBottomOf="@+id/selected_toppings" />
 
     <TextView
         android:id="@+id/crust_type"
-        android:layout_width="210dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="113dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="11dp"
         android:minHeight="48dp"
         android:text="Crust"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/size" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="11dp"
+        android:text="Crust - "
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/size"
-         />
+        app:layout_constraintTop_toBottomOf="@+id/size" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="59dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="5dp"
+        android:text="Price"
+        android:textSize="22sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/pizza_price"
+        app:layout_constraintTop_toBottomOf="@+id/selected_toppings" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

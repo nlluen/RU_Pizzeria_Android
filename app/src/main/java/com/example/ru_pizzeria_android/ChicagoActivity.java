@@ -34,6 +34,10 @@ public class ChicagoActivity extends AppCompatActivity {
     private Pizza pizza;
     private String flavor, size;
 
+    public Pizza getChicPizza(){
+        return pizza;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

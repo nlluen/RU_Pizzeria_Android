@@ -14,9 +14,14 @@ import java.util.ArrayList;
 
 public class ToppingsActivity extends AppCompatActivity {
     private ArrayList<Item> items = new ArrayList<>();
+    private ArrayList<String> toppings = new ArrayList<>();
     private int [] itemImages = {R.drawable.sausage, R.drawable.bbq_chicken, R.drawable.beef,
             R.drawable.ham, R.drawable.pepperoni, R.drawable.green_pepper, R.drawable.onion,
             R.drawable.mushroom,R.drawable.provolone,R.drawable.cheddar,R.drawable.olive,R.drawable.pineapple,R.drawable.bacon};
+
+    public ArrayList<String> getToppings() {
+        return toppings;
+    }
 
     /**
      * Get the references of all instances of Views defined in the layout file, set up the list of
