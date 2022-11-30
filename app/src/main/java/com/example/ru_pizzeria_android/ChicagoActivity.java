@@ -1,42 +1,43 @@
 package com.example.ru_pizzeria_android;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+import static com.example.ru_pizzeria_android.MainActivity.pizzaOrder;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ru_pizzeria_android.src.ChicagoPizza;
 import com.example.ru_pizzeria_android.src.Pizza;
 import com.example.ru_pizzeria_android.src.PizzaFactory;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class ChicagoActivity extends AppCompatActivity {
-    private Button mm_btn, topping_btn;
+    private Button topping_btn, order;
     private Spinner flavSpinner, sizeSpinner;
     private String [] flavors = {"Deluxe", "BBQ Chicken", "Meatzza", "Build Your Own"};
     private String [] sizes = {"small","medium","large"};
     private ArrayAdapter<String> adapter;
     private ArrayAdapter<String> sizeAdapter;
     private TextView crust_type, pizza_price;
-    private Pizza pizza;
+    public static Pizza chicPizza;
     private String flavor, size;
+    public static ArrayList<String> byoToppings = new ArrayList<>();
+    public static ListView selected_toppings;
 
-    public Pizza getChicPizza(){
-        return pizza;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,7 @@ public class ChicagoActivity extends AppCompatActivity {
                 }  else if (flavor.equalsIgnoreCase("Build Your Own")) {
                     selectBuildYourOwn();
                 }
+
             }
 
             @Override
@@ -83,11 +85,11 @@ public class ChicagoActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 size = sizeSpinner.getItemAtPosition(i).toString();
                 Toast.makeText(getApplicationContext(), size, Toast.LENGTH_LONG).show();
-                pizza.setSize(size.toLowerCase(Locale.ROOT));
+                chicPizza.setSize(size.toLowerCase(Locale.ROOT));
                 DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
-                Toast.makeText(getApplicationContext(),decimalFormat.format(pizza.price()) , Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),decimalFormat.format(chicPizza.price()) , Toast.LENGTH_LONG).show();
                 pizza_price = (TextView) findViewById(R.id.pizza_price);
-                pizza_price.setText(String.valueOf(decimalFormat.format(pizza.price())));
+                pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
             }
 
             @Override
@@ -102,6 +104,13 @@ public class ChicagoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openToppingsActivity();
+            }
+        });
+        order = findViewById(R.id.order);
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addOrder();
             }
         });
     }
@@ -122,46 +131,66 @@ public class ChicagoActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void addOrder(){
+        pizzaOrder.add(chicPizza);
+        Toast.makeText(getApplicationContext(),"Added to Order",Toast.LENGTH_LONG).show();
+    }
+
     void selectDeluxe() {
+        String[] Toppings = {"sausage", "pepperoni", "green pepper", "onion", "mushroom"};
+        selected_toppings = findViewById(R.id.selected_toppings);
+        ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Toppings);
+        selected_toppings.setAdapter(Adapter);
         PizzaFactory pizzaFactory = new ChicagoPizza();
-        pizza = pizzaFactory.createDeluxe();
-        pizza.setCrust("(Chicago Style - Deep Dish");
+        chicPizza = pizzaFactory.createDeluxe();
+        chicPizza.setCrust("(Chicago Style - Deep Dish");
         DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
         pizza_price = (TextView) findViewById(R.id.pizza_price);
-        pizza_price.setText(String.valueOf(decimalFormat.format(pizza.price())));
+        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
         crust_type = (TextView) findViewById(R.id.crust_type);
         crust_type.setText("Deep Dish");
     }
 
     void selectBBQChicken() {
+        String[] Toppings = {"bbq chicken", "green pepper", "provolone", "cheddar"};
+        selected_toppings = findViewById(R.id.selected_toppings);
+        ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Toppings);
+        selected_toppings.setAdapter(Adapter);
         PizzaFactory pizzaFactory = new ChicagoPizza();
-        pizza = pizzaFactory.createBBQChicken();
-        pizza.setCrust("(Chicago Style - Pan");
+        chicPizza = pizzaFactory.createBBQChicken();
+        chicPizza.setCrust("(Chicago Style - Pan");
         DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
         pizza_price = (TextView) findViewById(R.id.pizza_price);
-        pizza_price.setText(String.valueOf(decimalFormat.format(pizza.price())));
+        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
         crust_type = (TextView) findViewById(R.id.crust_type);
         crust_type.setText("Pan");
     }
 
     void selectMeatzza() {
+        String[] Toppings = {"sausage", "pepperoni", "beef", "ham"};
+        selected_toppings = findViewById(R.id.selected_toppings);
+        ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Toppings);
+        selected_toppings.setAdapter(Adapter);
         PizzaFactory pizzaFactory = new ChicagoPizza();
-        pizza = pizzaFactory.createMeatzza();
-        pizza.setCrust("(Chicago Style - Stuffed");
+        chicPizza = pizzaFactory.createMeatzza();
+        chicPizza.setCrust("(Chicago Style - Stuffed");
         DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
         pizza_price = (TextView) findViewById(R.id.pizza_price);
-        pizza_price.setText(String.valueOf(decimalFormat.format(pizza.price())));
+        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
         crust_type = (TextView) findViewById(R.id.crust_type);
         crust_type.setText("Stuffed");
     }
 
     void selectBuildYourOwn() {
+        selected_toppings = findViewById(R.id.selected_toppings);
+        ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, byoToppings);
+        selected_toppings.setAdapter(Adapter);
         PizzaFactory pizzaFactory = new ChicagoPizza();
-        pizza = pizzaFactory.createBuildYourOwn();
-        pizza.setCrust("(Chicago Style - Pan");
+        chicPizza = pizzaFactory.createBuildYourOwn();
+        chicPizza.setCrust("(Chicago Style - Pan");
         DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
         pizza_price = (TextView) findViewById(R.id.pizza_price);
-        pizza_price.setText(String.valueOf(decimalFormat.format(pizza.price())));
+        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
         crust_type = (TextView) findViewById(R.id.crust_type);
         crust_type.setText("Pan");
     }

@@ -16,9 +16,9 @@ public class MainActivity extends AppCompatActivity {
     private Button ny_btn;
     private Button store_order_btn;
     private Button order_btn;
-    private int orderNum = 1;
-    private Order pizzaOrder = new Order(orderNum);
-    private StoreOrder totalOrders = new StoreOrder();
+    public static int orderNum = 1;
+    public static Order pizzaOrder = new Order(orderNum);
+    public static StoreOrder totalOrders = new StoreOrder();
 
     /**
      * Getter for order.
@@ -118,6 +118,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void openCurrentOrderActivity() {
         Intent intent = new Intent(this, CurrentOrderActivity.class);
+        intent.putExtra("OrderNUM", orderNum);
         startActivity(intent);
     }
 }

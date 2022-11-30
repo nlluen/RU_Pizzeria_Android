@@ -1,5 +1,8 @@
 package com.example.ru_pizzeria_android;
 
+import static com.example.ru_pizzeria_android.ChicagoActivity.byoToppings;
+import static com.example.ru_pizzeria_android.ChicagoActivity.chicPizza;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -126,6 +129,10 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder>{
                         public void onClick(DialogInterface dialog, int which) {
                             Toast.makeText(itemView.getContext(),
                                     tv_name.getText().toString() + " added.", Toast.LENGTH_LONG).show();
+                            
+//                            chicPizza.add(tv_name.getText().toString().replaceAll("\\s", "_"));
+//                            byoToppings.add(tv_name.getText().toString());
+
                         }
                         //handle the "NO" click
                     }).setNegativeButton("no", new DialogInterface.OnClickListener() {
