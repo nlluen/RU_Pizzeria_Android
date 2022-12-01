@@ -64,12 +64,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/cancel_order"
+        android:id="@+id/remove_pizza"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="26dp"
-        android:text="Cancel Order"
+        android:text="Remove Pizza"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 

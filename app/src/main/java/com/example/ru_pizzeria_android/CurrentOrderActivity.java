@@ -1,11 +1,14 @@
 package com.example.ru_pizzeria_android;
 
+import static com.example.ru_pizzeria_android.MainActivity.orderNum;
 import static com.example.ru_pizzeria_android.MainActivity.pizzaOrder;
+import static com.example.ru_pizzeria_android.MainActivity.totalOrders;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,7 +29,7 @@ import java.util.List;
 public class CurrentOrderActivity extends AppCompatActivity {
     private TextView order_number,subTotal,tax,total;
     private ListView order_list;
-    private Button cancel_order;
+    private Button remove_pizza, place_order;
     private Order order;
     private ArrayList<Pizza> pizzaList;
     private List<String> pizzaOrders;
@@ -58,11 +61,19 @@ public class CurrentOrderActivity extends AppCompatActivity {
         });
         calc();
 
-        cancel_order = findViewById(R.id.cancel_order);
-        cancel_order.setOnClickListener(new View.OnClickListener() {
+        remove_pizza = findViewById(R.id.remove_pizza);
+        remove_pizza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 remove();
+            }
+        });
+
+        place_order = findViewById(R.id.place_order);
+        place_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                placeOrder();
             }
         });
     }
@@ -92,12 +103,21 @@ public class CurrentOrderActivity extends AppCompatActivity {
 
     public void remove() {
         order_list = findViewById(R.id.order_list);
-        System.out.println(pizzaOrders);
         pizzaOrders.remove(pizzaOrders.get(index));
-        System.out.println(pizzaOrders);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pizzaOrders);
         order_list.setAdapter(adapter);
         order.getPizzas().remove(index);
         calc();
+    }
+
+    public void placeOrder() {
+        if (pizzaOrders != null) {
+            totalOrders.add(order);
+            orderNum += 1;
+            pizzaOrder = new Order(orderNum);
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            Toast.makeText(getApplicationContext()," Your order has been placed!",Toast.LENGTH_LONG).show();
+        }
     }
 }
