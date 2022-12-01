@@ -19,9 +19,6 @@ public class ToppingsActivity extends AppCompatActivity {
             R.drawable.ham, R.drawable.pepperoni, R.drawable.green_pepper, R.drawable.onion,
             R.drawable.mushroom,R.drawable.provolone,R.drawable.cheddar,R.drawable.olive,R.drawable.pineapple,R.drawable.bacon};
 
-    public ArrayList<String> getToppings() {
-        return toppings;
-    }
 
     /**
      * Get the references of all instances of Views defined in the layout file, set up the list of

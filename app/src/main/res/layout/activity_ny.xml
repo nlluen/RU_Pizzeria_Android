@@ -26,7 +26,8 @@
         android:layout_marginTop="28dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        tools:ignore="TouchTargetSizeCheck" />
 
 
     <Spinner
@@ -37,7 +38,8 @@
         android:layout_marginTop="20dp"
         android:contentDescription="@string/app_name"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pizza_flavor" />
+        app:layout_constraintTop_toBottomOf="@+id/pizza_flavor"
+        tools:ignore="TouchTargetSizeCheck" />
 
     <ListView
         android:id="@+id/selected_toppings"

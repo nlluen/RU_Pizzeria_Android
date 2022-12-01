@@ -129,6 +129,7 @@ public class NYActivity extends AppCompatActivity {
 
     public void openToppingsActivity() {
         Intent intent = new Intent(this, ToppingsActivity.class);
+        intent.putExtra("PizzaType","chicago");
         startActivity(intent);
     }
 
