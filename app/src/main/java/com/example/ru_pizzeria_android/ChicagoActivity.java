@@ -143,7 +143,7 @@ public class ChicagoActivity extends AppCompatActivity {
         selected_toppings.setAdapter(Adapter);
         PizzaFactory pizzaFactory = new ChicagoPizza();
         chicPizza = pizzaFactory.createDeluxe();
-        chicPizza.setCrust("(Chicago Style - Deep Dish");
+        chicPizza.setCrust("(Chicago Style - Deep Dish)");
         DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
         pizza_price = (TextView) findViewById(R.id.pizza_price);
         pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
@@ -158,7 +158,7 @@ public class ChicagoActivity extends AppCompatActivity {
         selected_toppings.setAdapter(Adapter);
         PizzaFactory pizzaFactory = new ChicagoPizza();
         chicPizza = pizzaFactory.createBBQChicken();
-        chicPizza.setCrust("(Chicago Style - Pan");
+        chicPizza.setCrust("(Chicago Style - Pan)");
         DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
         pizza_price = (TextView) findViewById(R.id.pizza_price);
         pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
@@ -173,7 +173,7 @@ public class ChicagoActivity extends AppCompatActivity {
         selected_toppings.setAdapter(Adapter);
         PizzaFactory pizzaFactory = new ChicagoPizza();
         chicPizza = pizzaFactory.createMeatzza();
-        chicPizza.setCrust("(Chicago Style - Stuffed");
+        chicPizza.setCrust("(Chicago Style - Stuffed)");
         DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
         pizza_price = (TextView) findViewById(R.id.pizza_price);
         pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
@@ -187,7 +187,7 @@ public class ChicagoActivity extends AppCompatActivity {
         selected_toppings.setAdapter(Adapter);
         PizzaFactory pizzaFactory = new ChicagoPizza();
         chicPizza = pizzaFactory.createBuildYourOwn();
-        chicPizza.setCrust("(Chicago Style - Pan");
+        chicPizza.setCrust("(Chicago Style - Pan)");
         DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
         pizza_price = (TextView) findViewById(R.id.pizza_price);
         pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
