@@ -1,6 +1,5 @@
 package com.example.ru_pizzeria_android;
 
-import static com.example.ru_pizzeria_android.MainActivity.orderNum;
 import static com.example.ru_pizzeria_android.MainActivity.pizzaOrder;
 
 import androidx.appcompat.app.ActionBar;
@@ -9,22 +8,29 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.ru_pizzeria_android.src.Order;
 import com.example.ru_pizzeria_android.src.Pizza;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CurrentOrderActivity extends AppCompatActivity {
     private TextView order_number,subTotal,tax,total;
     private ListView order_list;
+    private Button cancel_order;
     private Order order;
     private ArrayList<Pizza> pizzaList;
-    private String[] pizzaOrders;
+    private List<String> pizzaOrders;
+    private int index;
     private double TAX = 0.06625;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -40,11 +46,25 @@ public class CurrentOrderActivity extends AppCompatActivity {
         order_number.setText(String.valueOf(ordernum));
         order = pizzaOrder;
         pizzaList = order.getPizzas();
-        pizzaOrders = order.getPizzaOrder().toArray(new String[0]);
+        pizzaOrders = order.getPizzaOrder();
         order_list = findViewById(R.id.order_list);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pizzaOrders);
         order_list.setAdapter(adapter);
+        order_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                index = position;
+            }
+        });
         calc();
+
+        cancel_order = findViewById(R.id.cancel_order);
+        cancel_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                remove();
+            }
+        });
     }
 
     public void calc() {
@@ -70,16 +90,14 @@ public class CurrentOrderActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    public void remove() {
-//        if (orderList.getSelectionModel().getSelectedItem() != null) {
-//            String result = orderList.getSelectionModel().getSelectedItem();
-//            int index = pizzaOrders.indexOf(result);
-//            pizzaOrders.remove(result);
-//            orderList.setItems(pizzaOrders);
-//            order.getPizzas().remove(index);
-//        }
-//
-//
-//        calc();
-//    }
+    public void remove() {
+        order_list = findViewById(R.id.order_list);
+        System.out.println(pizzaOrders);
+        pizzaOrders.remove(pizzaOrders.get(index));
+        System.out.println(pizzaOrders);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pizzaOrders);
+        order_list.setAdapter(adapter);
+        order.getPizzas().remove(index);
+        calc();
+    }
 }
