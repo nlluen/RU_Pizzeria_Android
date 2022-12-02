@@ -99,14 +99,6 @@ public class NYActivity extends AppCompatActivity {
             }
         });
 
-
-        topping_btn = (Button) findViewById(R.id.toppings);
-        topping_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openToppingsActivity();
-            }
-        });
         order = findViewById(R.id.order);
         order.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,7 +1,7 @@
 package com.example.ru_pizzeria_android;
 
-import static com.example.ru_pizzeria_android.ChicagoActivity.byoToppings;
-import static com.example.ru_pizzeria_android.ChicagoActivity.chicPizza;
+
+import static com.example.ru_pizzeria_android.MainActivity.orderNum;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -105,8 +105,38 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder>{
             parentLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(itemView.getContext(), ItemSelectedActivity.class);
-                    intent.putExtra("ITEM", tv_name.getText());
+                    Intent intent = new Intent(itemView.getContext(), ChicagoActivity.class);
+                    String input = tv_name.getText().toString();
+                    if(input.equalsIgnoreCase("Chicago BBQ Chicken")) {
+                        intent = new Intent(itemView.getContext(), ChicagoActivity.class);
+                        intent.putExtra("ITEM", "bbq");
+                    }else if(input.equalsIgnoreCase("Chicago Deluxe")){
+                        intent = new Intent(itemView.getContext(), ChicagoActivity.class);
+                        intent.putExtra("ITEM", "deluxe");
+                    }else if(input.equalsIgnoreCase("Chicago Meatzza")){
+                        intent = new Intent(itemView.getContext(), ChicagoActivity.class);
+                        intent.putExtra("ITEM", "meatzza");
+                    }else if(input.equalsIgnoreCase("Chicago Build Your Own")){
+                        intent = new Intent(itemView.getContext(), ChicagoActivity.class);
+                        intent.putExtra("ITEM", "byo");
+                    }else if(input.equalsIgnoreCase("New York BBQ Chicken")){
+                        intent = new Intent(itemView.getContext(), NYActivity.class);
+                        intent.putExtra("ITEM", "bbq");
+                    }else if(input.equalsIgnoreCase("New York Deluxe")){
+                        intent = new Intent(itemView.getContext(), NYActivity.class);
+                        intent.putExtra("ITEM", "deluxe");
+                    }else if(input.equalsIgnoreCase("New York Meatzza")){
+                        intent = new Intent(itemView.getContext(), NYActivity.class);
+                        intent.putExtra("ITEM", "meatzza");
+                    }else if(input.equalsIgnoreCase("New York Build Your Own")){
+                        intent = new Intent(itemView.getContext(), NYActivity.class);
+                        intent.putExtra("ITEM", "byo");
+                    }else if(input.equalsIgnoreCase("Current Order")){
+                        intent = new Intent(itemView.getContext(), CurrentOrderActivity.class);
+                        intent.putExtra("OrderNUM", orderNum);
+                    }else if(input.equalsIgnoreCase("Store Orders")){
+                        intent = new Intent(itemView.getContext(), StoreOrderActivity.class);
+                    }
                     itemView.getContext().startActivity(intent);
                 }
             });

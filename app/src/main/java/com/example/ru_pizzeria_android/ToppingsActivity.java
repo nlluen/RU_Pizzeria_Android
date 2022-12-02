@@ -14,10 +14,8 @@ import java.util.ArrayList;
 
 public class ToppingsActivity extends AppCompatActivity {
     private ArrayList<Item> items = new ArrayList<>();
-    private ArrayList<String> toppings = new ArrayList<>();
-    private int [] itemImages = {R.drawable.sausage, R.drawable.bbq_chicken, R.drawable.beef,
-            R.drawable.ham, R.drawable.pepperoni, R.drawable.green_pepper, R.drawable.onion,
-            R.drawable.mushroom,R.drawable.provolone,R.drawable.cheddar,R.drawable.olive,R.drawable.pineapple,R.drawable.bacon};
+    private int [] itemImages = {R.drawable.chicbbq, R.drawable.chicdeluxe, R.drawable.chicmeatzza,R.drawable.chicbyo,
+            R.drawable.nybbq, R.drawable.nydeluxe, R.drawable.nymeatzza, R.drawable.nybyo, R.drawable.cart,R.drawable.pizzeria};
 
 
     /**

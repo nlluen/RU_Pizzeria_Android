@@ -45,7 +45,7 @@ public class CurrentOrderActivity extends AppCompatActivity {
 
         order_number = (TextView) findViewById(R.id.orderNumber);
 
-         int ordernum = getIntent().getExtras().getInt("OrderNUM");
+        int ordernum = getIntent().getExtras().getInt("OrderNUM");
         order_number.setText(String.valueOf(ordernum));
         order = pizzaOrder;
         pizzaList = order.getPizzas();
