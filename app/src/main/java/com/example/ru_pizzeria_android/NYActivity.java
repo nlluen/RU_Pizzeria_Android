@@ -46,21 +46,64 @@ public class NYActivity extends AppCompatActivity {
     public static ListView selected_toppings;
 
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chicago);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
-        flavSpinner = findViewById(R.id.pizza_flavor);
+        flavListener();
+
         selectToppings = findViewById(R.id.select_toppings);
-        adapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, flavors);
         topAdapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, allToppings);
+        selectToppings.setAdapter(topAdapter);
+        selected_toppings = findViewById(R.id.selected_toppings);
+        selected_toppings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                index = position;
+            }
+        });
+        sizeListener();
+        buttons();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void addOrder(){
+        pizzaOrder.add(size);
+        Toast.makeText(getApplicationContext(),"Added to Order",Toast.LENGTH_LONG).show();
+    }
+
+    public void startSpinnerPos(){
+        flavSpinner = findViewById(R.id.pizza_flavor);
+        Bundle extras = getIntent().getExtras();
+        String flav = extras.getString("ITEM");
+        System.out.println(flav);
+        if(flav.equalsIgnoreCase("deluxe")){
+            flavSpinner.setSelection(0);
+        }else if(flav.equalsIgnoreCase("bbq")){
+            flavSpinner.setSelection(1);
+        }else if(flav.equalsIgnoreCase("meatzza")){
+            flavSpinner.setSelection(2);
+        }else if(flav.equalsIgnoreCase("byo")){
+            flavSpinner.setSelection(3);
+        }
+    }
+
+    public void flavListener(){
+        flavSpinner = findViewById(R.id.pizza_flavor);
+        adapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, flavors);
         flavSpinner.setAdapter(adapter);
         startSpinnerPos();
-        selectToppings.setAdapter(topAdapter);
         flavor = "Deluxe";
-
         flavSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -79,14 +122,9 @@ public class NYActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {}
         });
-        selected_toppings = findViewById(R.id.selected_toppings);
-        selected_toppings.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                index = position;
-            }
-        });
+    }
 
+    public void sizeListener(){
         sizeSpinner = findViewById(R.id.size);
         sizeAdapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,sizes);
         sizeSpinner.setAdapter(sizeAdapter);
@@ -105,6 +143,9 @@ public class NYActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {}
         });
+    }
+
+    public void buttons(){
         order = findViewById(R.id.order);
         order.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,37 +167,6 @@ public class NYActivity extends AppCompatActivity {
                 removeTopping();
             }
         });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    public void addOrder(){
-        pizzaOrder.add(nyPizza);
-        Toast.makeText(getApplicationContext(),"Added to Order",Toast.LENGTH_LONG).show();
-    }
-
-    public void startSpinnerPos(){
-        flavSpinner = findViewById(R.id.pizza_flavor);
-        Bundle extras = getIntent().getExtras();
-        String flav = extras.getString("ITEM");
-        System.out.println(flav);
-        if(flav.equalsIgnoreCase("deluxe")){
-            flavSpinner.setSelection(0);
-        }else if(flav.equalsIgnoreCase("bbq")){
-            flavSpinner.setSelection(1);
-        }else if(flav.equalsIgnoreCase("meatzza")){
-            flavSpinner.setSelection(2);
-        }else if(flav.equalsIgnoreCase("byo")){
-            flavSpinner.setSelection(3);
-        }
     }
 
     public void addTopping(){
