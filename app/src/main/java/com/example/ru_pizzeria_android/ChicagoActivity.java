@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ru_pizzeria_android.src.ChicagoPizza;
@@ -158,18 +159,26 @@ public class ChicagoActivity extends AppCompatActivity {
     }
 
     public void addTopping(){
-        String topping = selectToppings.getSelectedItem().toString();
-        allToppings.remove(topping);
-        byoToppings.add(topping);
-        selected_toppings = findViewById(R.id.selected_toppings);
-        ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, byoToppings);
-        topAdapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, allToppings);
-        selected_toppings.setAdapter(Adapter);
-        selectToppings.setAdapter(topAdapter);
-        chicPizza.add(topping.replaceAll("\\s", "_"));
-        DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
-        pizza_price = (TextView) findViewById(R.id.pizza_price);
-        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
+        if(byoToppings.size() < 7) {
+            String topping = selectToppings.getSelectedItem().toString();
+            allToppings.remove(topping);
+            byoToppings.add(topping);
+            selected_toppings = findViewById(R.id.selected_toppings);
+            ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, byoToppings);
+            topAdapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, allToppings);
+            selected_toppings.setAdapter(Adapter);
+            selectToppings.setAdapter(topAdapter);
+            chicPizza.add(topping.replaceAll("\\s", "_"));
+            DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
+            pizza_price = (TextView) findViewById(R.id.pizza_price);
+            pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
+        }else{
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("TOO MANY TOPPINGS!");
+            alert.setMessage("You are not able to add more than 7 toppings");
+            AlertDialog dialog = alert.create();
+            dialog.show();
+        }
     }
 
     public void removeTopping(){
