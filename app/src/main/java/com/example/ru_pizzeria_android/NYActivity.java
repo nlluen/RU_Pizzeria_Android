@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.ru_pizzeria_android.src.NYPizza;
+import com.example.ru_pizzeria_android.src.ChicagoPizza;
 import com.example.ru_pizzeria_android.src.Pizza;
 import com.example.ru_pizzeria_android.src.PizzaFactory;
 
@@ -46,6 +46,7 @@ public class NYActivity extends AppCompatActivity {
     public static ListView selected_toppings;
 
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chicago);
@@ -66,6 +67,7 @@ public class NYActivity extends AppCompatActivity {
         sizeListener();
         buttons();
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -77,7 +79,7 @@ public class NYActivity extends AppCompatActivity {
     }
 
     public void addOrder(){
-        pizzaOrder.add(size);
+        pizzaOrder.add(nyPizza);
         Toast.makeText(getApplicationContext(),"Added to Order",Toast.LENGTH_LONG).show();
     }
 
@@ -206,11 +208,11 @@ public class NYActivity extends AppCompatActivity {
         selectToppings.setEnabled(false);
         addTop.setEnabled(false);
         removeTop.setEnabled(false);
-        String[] Toppings = {"sausage", "pepperoni", "green pepper", "onion", "mushroom"};
+        Toppings = new String[]{"sausage", "pepperoni", "green pepper", "onion", "mushroom"};
         selected_toppings = findViewById(R.id.selected_toppings);
         ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Toppings);
         selected_toppings.setAdapter(Adapter);
-        PizzaFactory pizzaFactory = new NYPizza();
+        PizzaFactory pizzaFactory = new ChicagoPizza();
         nyPizza = pizzaFactory.createDeluxe();
         nyPizza.setCrust("(New York Style - Brooklyn)");
         DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
@@ -224,11 +226,11 @@ public class NYActivity extends AppCompatActivity {
         selectToppings.setEnabled(false);
         addTop.setEnabled(false);
         removeTop.setEnabled(false);
-        String[] Toppings = {"bbq chicken", "green pepper", "provolone", "cheddar"};
+        Toppings = new String[]{"bbq chicken", "green pepper", "provolone", "cheddar"};
         selected_toppings = findViewById(R.id.selected_toppings);
         ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Toppings);
         selected_toppings.setAdapter(Adapter);
-        PizzaFactory pizzaFactory = new NYPizza();
+        PizzaFactory pizzaFactory = new ChicagoPizza();
         nyPizza = pizzaFactory.createBBQChicken();
         nyPizza.setCrust("(New York Style - Thin)");
         DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
@@ -242,11 +244,11 @@ public class NYActivity extends AppCompatActivity {
         selectToppings.setEnabled(false);
         addTop.setEnabled(false);
         removeTop.setEnabled(false);
-        String[] Toppings = {"sausage", "pepperoni", "beef", "ham"};
+        Toppings = new String[]{"sausage", "pepperoni", "beef", "ham"};
         selected_toppings = findViewById(R.id.selected_toppings);
         ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Toppings);
         selected_toppings.setAdapter(Adapter);
-        PizzaFactory pizzaFactory = new NYPizza();
+        PizzaFactory pizzaFactory = new ChicagoPizza();
         nyPizza = pizzaFactory.createMeatzza();
         nyPizza.setCrust("(New York Style - Hand Tossed)");
         DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
@@ -260,10 +262,11 @@ public class NYActivity extends AppCompatActivity {
         selectToppings.setEnabled(true);
         addTop.setEnabled(true);
         removeTop.setEnabled(true);
+        Toppings = new String[]{};
         selected_toppings = findViewById(R.id.selected_toppings);
         ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, byoToppings);
         selected_toppings.setAdapter(Adapter);
-        PizzaFactory pizzaFactory = new NYPizza();
+        PizzaFactory pizzaFactory = new ChicagoPizza();
         nyPizza = pizzaFactory.createBuildYourOwn();
         nyPizza.setCrust("(New York Style - Hand Tossed)");
         DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
