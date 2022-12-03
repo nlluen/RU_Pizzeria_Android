@@ -66,7 +66,6 @@ public class NYActivity extends AppCompatActivity {
         sizeListener();
         buttons();
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -108,7 +107,6 @@ public class NYActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 flavor = flavSpinner.getItemAtPosition(i).toString();
-                Toast.makeText(getApplicationContext(), flavor, Toast.LENGTH_LONG).show();
                 if (flavor.equalsIgnoreCase("Deluxe")) {
                     selectDeluxe();
                 } else if (flavor.equalsIgnoreCase("BBQ Chicken")) {
@@ -133,10 +131,8 @@ public class NYActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 size = sizeSpinner.getItemAtPosition(i).toString();
-                Toast.makeText(getApplicationContext(), size, Toast.LENGTH_LONG).show();
                 nyPizza.setSize(size.toLowerCase(Locale.ROOT));
                 DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
-                Toast.makeText(getApplicationContext(),decimalFormat.format(nyPizza.price()) , Toast.LENGTH_LONG).show();
                 pizza_price = (TextView) findViewById(R.id.pizza_price);
                 pizza_price.setText(String.valueOf(decimalFormat.format(nyPizza.price())));
             }
