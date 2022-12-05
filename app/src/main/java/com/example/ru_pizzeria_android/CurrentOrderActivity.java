@@ -5,6 +5,7 @@ import static com.example.ru_pizzeria_android.MainActivity.pizzaOrder;
 import static com.example.ru_pizzeria_android.MainActivity.totalOrders;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -102,12 +103,20 @@ public class CurrentOrderActivity extends AppCompatActivity {
     }
 
     public void remove() {
-        order_list = findViewById(R.id.order_list);
-        pizzaOrders.remove(pizzaOrders.get(index));
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pizzaOrders);
-        order_list.setAdapter(adapter);
-        order.getPizzas().remove(index);
-        calc();
+        if (pizzaOrders.size() > 0) {
+            order_list = findViewById(R.id.order_list);
+            pizzaOrders.remove(pizzaOrders.get(index));
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pizzaOrders);
+            order_list.setAdapter(adapter);
+            order.getPizzas().remove(index);
+            calc();
+        }else{
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("No Items");
+            alert.setMessage("You do not have an pizzas in your cart");
+            AlertDialog dialog = alert.create();
+            dialog.show();
+        }
     }
 
     public void placeOrder() {
