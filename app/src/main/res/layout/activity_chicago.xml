@@ -12,7 +12,7 @@
         android:layout_height="22dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="Choose Chicago pizza flavor"
+        android:text="@string/choose_chicago_pizza_flavor"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="36dp"
-        android:text="Add to Order"
+        android:text="@string/add_to_order"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selected_toppings" />
 
@@ -67,7 +67,7 @@
         android:layout_height="27dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="30dp"
-        android:text="Price"
+        android:text="@string/price"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/order"
         app:layout_constraintTop_toBottomOf="@+id/selected_toppings" />
@@ -79,7 +79,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="11dp"
         android:minHeight="48dp"
-        android:text="Crust"
+        android:text="@string/crust"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/size" />
@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
         android:layout_marginTop="11dp"
-        android:text="Crust - "
+        android:text="@string/crust"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/size" />
@@ -101,7 +101,7 @@
         android:layout_height="29dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="5dp"
-        android:text="Price"
+        android:text="@string/price"
         android:textSize="22sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toStartOf="@+id/pizza_price"
@@ -122,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="51dp"
-        android:text="Add Topping"
+        android:text="@string/add_topping"
         app:layout_constraintStart_toEndOf="@+id/select_toppings"
         app:layout_constraintTop_toBottomOf="@+id/size" />
 
@@ -132,7 +132,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
-        android:text="Remove Topping"
+        android:text="@string/remove_topping"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/select_toppings"
         app:layout_constraintTop_toBottomOf="@+id/addTop" />

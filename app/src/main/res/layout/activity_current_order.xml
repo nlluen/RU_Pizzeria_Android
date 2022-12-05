@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
-        android:text="Subtotal:"
+        android:text="@string/subtotal"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="117dp"
         android:layout_marginTop="20dp"
-        android:text="Total"
+        android:text="@string/total"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
-        android:text="Tax:"
+        android:text="@string/tax"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/subTotal"
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:text="Order Number"
+        android:text="@string/order_number"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +69,7 @@
         android:layout_height="0dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="26dp"
-        android:text="Remove Pizza"
+        android:text="@string/remove_pizza"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
@@ -79,7 +79,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="28dp"
         android:layout_marginEnd="24dp"
-        android:text="Place Order"
+        android:text="@string/place_order"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/total" />
 
@@ -89,7 +89,7 @@
         android:layout_height="28dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="19dp"
-        android:text="TextView"
+        android:text="@string/textview"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="parent" />
@@ -100,7 +100,6 @@
         android:layout_height="30dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="28dp"
-        android:text="TextView"
         android:textSize="22sp"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/order_list" />
@@ -111,7 +110,6 @@
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="28dp"
-        android:text="TextView"
         android:textSize="22sp"
         app:layout_constraintStart_toEndOf="@+id/textView6"
         app:layout_constraintTop_toBottomOf="@+id/order_list" />
@@ -122,7 +120,6 @@
         android:layout_height="30dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="TextView"
         android:textSize="22sp"
         app:layout_constraintStart_toEndOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />

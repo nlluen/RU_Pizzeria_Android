@@ -12,7 +12,7 @@
         android:layout_height="22dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:text="Choose New York pizza flavor"
+        android:text="@string/choose_new_york_pizza_flavor"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="36dp"
-        android:text="Add to Order"
+        android:text="@string/add_to_order2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selected_toppings" />
 

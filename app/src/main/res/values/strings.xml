@@ -1,5 +1,22 @@
 <resources>
     <string name="app_name">RU Pizzeria</string>
+    <string name="choose_chicago_pizza_flavor">Choose Chicago pizza flavor</string>
+    <string name="add_to_order">Add to Order</string>
+    <string name="crust">Crust -</string>
+    <string name="price">Price</string>
+    <string name="add_topping">Add Topping</string>
+    <string name="remove_topping">Remove Topping</string>
+    <string name="todo">TODO</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="tax">Tax:</string>
+    <string name="total">Total</string>
+    <string name="order_number">Order Number</string>
+    <string name="remove_pizza">Remove Pizza</string>
+    <string name="place_order">Place Order</string>
+    <string name="textview">TextView</string>
+    <string name="chicago">chicago</string>
+    <string name="choose_new_york_pizza_flavor">Choose New York pizza flavor</string>
+    <string name="add_to_order2">Add to Order</string>
     <string-array name="itemNames">
         <item>Chicago BBQ Chicken</item>
         <item>Chicago Deluxe</item>
