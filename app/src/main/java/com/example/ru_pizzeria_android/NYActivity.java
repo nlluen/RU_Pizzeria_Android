@@ -81,6 +81,7 @@ public class NYActivity extends AppCompatActivity {
     public void addOrder(){
         pizzaOrder.add(nyPizza);
         Toast.makeText(getApplicationContext(),"Added to Order",Toast.LENGTH_LONG).show();
+        flavListener();
     }
 
     public void startSpinnerPos(){

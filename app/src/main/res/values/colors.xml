@@ -7,5 +7,5 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <drawable name="grey_color">#9C9B9B</drawable>
+    <drawable name="grey_color">#FF3700B3</drawable>
 </resources>

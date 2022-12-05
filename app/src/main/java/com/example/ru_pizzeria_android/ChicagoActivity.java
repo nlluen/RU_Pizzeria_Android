@@ -61,6 +61,7 @@ public class ChicagoActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 index = position;
+                view.setSelected(true);
             }
         });
         sizeListener();
@@ -80,6 +81,7 @@ public class ChicagoActivity extends AppCompatActivity {
     public void addOrder(){
         pizzaOrder.add(chicPizza);
         Toast.makeText(getApplicationContext(),"Added to Order",Toast.LENGTH_LONG).show();
+        flavListener();
     }
 
     public void startSpinnerPos(){
