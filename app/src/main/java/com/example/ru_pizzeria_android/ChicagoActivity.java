@@ -117,6 +117,11 @@ public class ChicagoActivity extends AppCompatActivity {
                 }  else if (flavor.equalsIgnoreCase("Build Your Own")) {
                     selectBuildYourOwn();
                 }
+                size = sizeSpinner.getSelectedItem().toString();
+                chicPizza.setSize(size.toLowerCase(Locale.ROOT));
+                DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
+                pizza_price = (TextView) findViewById(R.id.pizza_price);
+                pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {}
