@@ -190,17 +190,25 @@ public class ChicagoActivity extends AppCompatActivity {
     }
 
     public void removeTopping(){
-        selected_toppings = findViewById(R.id.selected_toppings);
-        allToppings.add(byoToppings.get(index));
-        chicPizza.remove(byoToppings.get(index).replaceAll("\\s", "_"));
-        byoToppings.remove(index);
-        ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, byoToppings);
-        topAdapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, allToppings);
-        selected_toppings.setAdapter(Adapter);
-        selectToppings.setAdapter(topAdapter);
-        DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
-        pizza_price = (TextView) findViewById(R.id.pizza_price);
-        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
+        if(byoToppings.size() > 0) {
+            selected_toppings = findViewById(R.id.selected_toppings);
+            allToppings.add(byoToppings.get(index));
+            chicPizza.remove(byoToppings.get(index).replaceAll("\\s", "_"));
+            byoToppings.remove(index);
+            ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, byoToppings);
+            topAdapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, allToppings);
+            selected_toppings.setAdapter(Adapter);
+            selectToppings.setAdapter(topAdapter);
+            DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
+            pizza_price = (TextView) findViewById(R.id.pizza_price);
+            pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
+        }else{
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("No Toppings");
+            alert.setMessage("You have no toppings added");
+            AlertDialog dialog = alert.create();
+            dialog.show();
+        }
     }
 
     void selectDeluxe() {
