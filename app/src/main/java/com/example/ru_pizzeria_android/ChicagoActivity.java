@@ -117,6 +117,11 @@ public class ChicagoActivity extends AppCompatActivity {
                 }  else if (flavor.equalsIgnoreCase("Build Your Own")) {
                     selectBuildYourOwn();
                 }
+                size = sizeSpinner.getSelectedItem().toString();
+                chicPizza.setSize(size.toLowerCase(Locale.ROOT));
+                DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
+                pizza_price = (TextView) findViewById(R.id.pizza_price);
+                pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {}
@@ -222,9 +227,9 @@ public class ChicagoActivity extends AppCompatActivity {
         PizzaFactory pizzaFactory = new ChicagoPizza();
         chicPizza = pizzaFactory.createDeluxe();
         chicPizza.setCrust("(Chicago Style - Deep Dish)");
-        DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
-        pizza_price = (TextView) findViewById(R.id.pizza_price);
-        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
+//        DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
+//        pizza_price = (TextView) findViewById(R.id.pizza_price);
+//        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
         crust_type = (TextView) findViewById(R.id.crust_type);
         crust_type.setText("Deep Dish");
     }
@@ -240,9 +245,9 @@ public class ChicagoActivity extends AppCompatActivity {
         PizzaFactory pizzaFactory = new ChicagoPizza();
         chicPizza = pizzaFactory.createBBQChicken();
         chicPizza.setCrust("(Chicago Style - Pan)");
-        DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
-        pizza_price = (TextView) findViewById(R.id.pizza_price);
-        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
+//        DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
+//        pizza_price = (TextView) findViewById(R.id.pizza_price);
+//        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
         crust_type = (TextView) findViewById(R.id.crust_type);
         crust_type.setText("Pan");
     }
@@ -258,9 +263,9 @@ public class ChicagoActivity extends AppCompatActivity {
         PizzaFactory pizzaFactory = new ChicagoPizza();
         chicPizza = pizzaFactory.createMeatzza();
         chicPizza.setCrust("(Chicago Style - Stuffed)");
-        DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
-        pizza_price = (TextView) findViewById(R.id.pizza_price);
-        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
+//        DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
+//        pizza_price = (TextView) findViewById(R.id.pizza_price);
+//        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
         crust_type = (TextView) findViewById(R.id.crust_type);
         crust_type.setText("Stuffed");
     }
@@ -276,9 +281,9 @@ public class ChicagoActivity extends AppCompatActivity {
         PizzaFactory pizzaFactory = new ChicagoPizza();
         chicPizza = pizzaFactory.createBuildYourOwn();
         chicPizza.setCrust("(Chicago Style - Pan)");
-        DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
-        pizza_price = (TextView) findViewById(R.id.pizza_price);
-        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
+//        DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
+//        pizza_price = (TextView) findViewById(R.id.pizza_price);
+//        pizza_price.setText(String.valueOf(decimalFormat.format(chicPizza.price())));
         crust_type = (TextView) findViewById(R.id.crust_type);
         crust_type.setText("Pan");
     }
