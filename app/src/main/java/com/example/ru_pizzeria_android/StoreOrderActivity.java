@@ -3,6 +3,7 @@ package com.example.ru_pizzeria_android;
 import static com.example.ru_pizzeria_android.MainActivity.totalOrders;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
@@ -29,6 +30,7 @@ public class StoreOrderActivity extends AppCompatActivity {
     private Spinner order_spinner;
     private ListView storeOrderList;
     private Button cancel_order;
+    private ArrayList<Integer> storeOrderNums;
     private double TAX = 0.06625;
     @SuppressLint("MissingInflatedId")
     @Override
@@ -42,7 +44,7 @@ public class StoreOrderActivity extends AppCompatActivity {
         storeOrderTotal = findViewById(R.id.storeOrderTotal);
         storeOrderList = findViewById(R.id.storeOrderList);
         StoreOrder storeOrder = totalOrders;
-        ArrayList<Integer> storeOrderNums = storeOrder.listNums();
+        storeOrderNums = storeOrder.listNums();
         ArrayAdapter<Integer> orderNumAdapter = new ArrayAdapter<Integer>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, storeOrderNums);
         order_spinner.setAdapter(orderNumAdapter);
         if(!storeOrderNums.isEmpty()){
@@ -92,15 +94,22 @@ public class StoreOrderActivity extends AppCompatActivity {
     }
 
     public void cancelOrder(){
-        Integer selected = Integer.valueOf(order_spinner.getSelectedItem().toString());
-        Order chosenOrder = totalOrders.getOrder(selected);
-
-        totalOrders.remove(chosenOrder);
-        storeOrderList.setAdapter(null);
-        storeOrderTotal.setText("");
-        ArrayList<Integer> storeOrderNums = totalOrders.listNums();
-        ArrayAdapter<Integer> numsAdapter = new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, storeOrderNums);
-        order_spinner.setAdapter(numsAdapter);
+        if(storeOrderNums.size() > 0) {
+            Integer selected = Integer.valueOf(order_spinner.getSelectedItem().toString());
+            Order chosenOrder = totalOrders.getOrder(selected);
+            totalOrders.remove(chosenOrder);
+            storeOrderList.setAdapter(null);
+            storeOrderTotal.setText("");
+            ArrayList<Integer> storeOrderNums = totalOrders.listNums();
+            ArrayAdapter<Integer> numsAdapter = new ArrayAdapter<>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, storeOrderNums);
+            order_spinner.setAdapter(numsAdapter);
+        }else{
+            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            alert.setTitle("No Orders!");
+            alert.setMessage("There are no orders to cancel");
+            AlertDialog dialog = alert.create();
+            dialog.show();
+        }
     }
 
     @Override
