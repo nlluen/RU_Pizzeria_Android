@@ -94,7 +94,7 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder>{
             im_item = itemView.findViewById(R.id.im_item);;
             parentLayout = itemView.findViewById(R.id.rowLayout);
 
-            /* set onClickListener for the row layout,
+            /** set onClickListener for the row layout,
              * clicking on a row will navigate to another Activity
              */
             parentLayout.setOnClickListener(new View.OnClickListener() {

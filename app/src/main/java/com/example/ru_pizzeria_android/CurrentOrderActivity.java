@@ -1,3 +1,9 @@
+/**
+ * The CurrentOrderActivity is meant to hold all the methods for modifying the current order such as removing
+ * any pizza in the order. This class will update the prices accordingly whenever a pizza is removed.
+ *
+ * @author Nick Lluen, Ahnaf Rashid
+ */
 package com.example.ru_pizzeria_android;
 
 import static com.example.ru_pizzeria_android.MainActivity.orderNum;
@@ -36,6 +42,12 @@ public class CurrentOrderActivity extends AppCompatActivity {
     private List<String> pizzaOrders;
     private int index;
     private double TAX = 0.06625;
+
+    /**
+     * This will initialize what the Current Order Activity will look like on creation
+     * @param savedInstanceState
+     *
+     */
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +67,13 @@ public class CurrentOrderActivity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, pizzaOrders);
         order_list.setAdapter(adapter);
         order_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            /**
+             * the list of pizzas in the current order
+             * @param parent
+             * @param view
+             * @param position
+             * @param id
+             */
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 index = position;
@@ -64,12 +83,20 @@ public class CurrentOrderActivity extends AppCompatActivity {
 
         remove_pizza = findViewById(R.id.remove_pizza);
         remove_pizza.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Whenever this button is clicked, it will remove whichever pizza was selected
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 remove();
             }
         });
 
+        /**
+         * Whenever this button is clicked, it will complete the current order
+         * @param v
+         */
         place_order = findViewById(R.id.place_order);
         place_order.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +106,11 @@ public class CurrentOrderActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * This method is called to update the text boxes on the interface to correspond with the subtotal price of
+     * the order, the calculated tax based on 0.06625% of the subtotal, and the total cost which is both previous
+     * prices added together.
+     */
     public void calc() {
         subTotal = findViewById(R.id.subTotal);
         tax = findViewById(R.id.tax);
@@ -92,6 +124,7 @@ public class CurrentOrderActivity extends AppCompatActivity {
         total.setText(String.valueOf(decimalFormat.format(TOTAL)));
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -102,6 +135,10 @@ public class CurrentOrderActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * This method will remove the current selected pizza from the current order display and if there are no more items to
+     * remove it will tell the user that they are unable to remove more
+     */
     public void remove() {
         if (pizzaOrders.size() > 0) {
             order_list = findViewById(R.id.order_list);
@@ -119,6 +156,10 @@ public class CurrentOrderActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method is called when the Place Order button is clicked and will add the current order to the total
+     * order and will update the order number. This information will be displayed in the Store Order Interface.
+     */
     public void placeOrder() {
         if (pizzaOrders != null) {
             totalOrders.add(order);

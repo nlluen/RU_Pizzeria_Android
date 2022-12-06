@@ -1,3 +1,9 @@
+/**
+ * The MainActivity class is meant to be the first Activity that the user sees when they load the app. It will show
+ * them a list of all the possible choices that they are able to choose. The user will be able to click on all 4 pizza
+ * flavors for Chicago and New York. It will also display the option to check the Current Order and the Store Orders.
+ * @author Nick Lluen, Ahnaf Rashid
+ */
 package com.example.ru_pizzeria_android;
 
 import androidx.appcompat.app.ActionBar;

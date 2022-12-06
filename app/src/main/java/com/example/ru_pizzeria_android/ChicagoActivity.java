@@ -1,3 +1,10 @@
+/**
+ * The ChicagoActivity is meant to hold all the methods for modifying the four different pizza flavors: BBQ Chicken, Deluxe,
+ * Meatzza, and Build Your Own. This class will allow the user to modify the toppings on the pizza such as adding/removing.
+ * This method also allows the user to order the current pizza and send it to the current order Activity.
+ *
+ * @author Nick Lluen, Ahnaf Rashid
+ */
 package com.example.ru_pizzeria_android;
 
 import static com.example.ru_pizzeria_android.MainActivity.pizzaOrder;
@@ -46,6 +53,11 @@ public class ChicagoActivity extends AppCompatActivity {
     public static ListView selected_toppings;
 
 
+    /**
+     * This will initialize what the Chicago Activity will look like / behave on creation
+     * @param savedInstanceState
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +81,7 @@ public class ChicagoActivity extends AppCompatActivity {
         buttons();
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -79,6 +92,10 @@ public class ChicagoActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * This method is called when the Add to Order button is pressed and will add the current pizza to the
+     * current order list
+     */
     public void addOrder(){
         pizzaOrder.add(chicPizza);
         Toast.makeText(getApplicationContext(),"Added to Order",Toast.LENGTH_LONG).show();
@@ -88,6 +105,9 @@ public class ChicagoActivity extends AppCompatActivity {
         flavListener();
     }
 
+    /**
+     * Initializes the flavor spinner
+     */
     public void startSpinnerPos(){
         flavSpinner = findViewById(R.id.pizza_flavor);
         Bundle extras = getIntent().getExtras();
@@ -103,7 +123,10 @@ public class ChicagoActivity extends AppCompatActivity {
             flavSpinner.setSelection(3);
         }
     }
-
+    /**
+     * This method is used when the user interacts with the flavor spinner and selects a flavor option. When one of the flavors
+     * is selected, it will update the flavor of the pizza by calling the respective pizza method.
+     */
     public void flavListener(){
         flavSpinner = findViewById(R.id.pizza_flavor);
         adapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, flavors);
@@ -134,6 +157,10 @@ public class ChicagoActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * This method is used when the user interacts with the size spinner and selects a size option. When one of the sizes
+     * is selected, it will update the size of the pizza and price.
+     */
     public void sizeListener(){
         sizeSpinner = findViewById(R.id.size);
         sizeAdapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item,sizes);
@@ -153,6 +180,10 @@ public class ChicagoActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * This method holds what the three buttons on the interface (add, remove, and order) should do when
+     * they are clicked
+     */
     public void buttons(){
         order = findViewById(R.id.order);
         order.setOnClickListener(new View.OnClickListener() {
@@ -176,7 +207,9 @@ public class ChicagoActivity extends AppCompatActivity {
             }
         });
     }
-
+    /**
+     * Adds a chosen topping to the pizza and remove it from the total list of toppings.
+     */
     public void addTopping(){
         if(byoToppings.size() < 7) {
             String topping = selectToppings.getSelectedItem().toString();
@@ -200,6 +233,9 @@ public class ChicagoActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Removes a chosen topping from the pizza and returns it back to the total list of toppings.
+     */
     public void removeTopping(){
         if(byoToppings.size() > 0) {
             selected_toppings = findViewById(R.id.selected_toppings);
@@ -222,6 +258,11 @@ public class ChicagoActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * When called it changes the different text boxes to the needed toppings,crust and prices
+     * according to how a Deluxe Pizza pizza is structured. Also disables the add/remove toppings buttons
+     * because the toppings should already preset.
+     */
     void selectDeluxe() {
         selectToppings.setEnabled(false);
         addTop.setEnabled(false);
@@ -240,6 +281,11 @@ public class ChicagoActivity extends AppCompatActivity {
         crust_type.setText("Deep Dish");
     }
 
+    /**
+     * When called it changes the different text boxes to the needed toppings,crust and prices
+     * according to how a BBQ Chicken pizza is structured. Also disables the add/remove toppings buttons
+     * because the toppings should already preset.
+     */
     void selectBBQChicken() {
         selectToppings.setEnabled(false);
         addTop.setEnabled(false);
@@ -257,7 +303,11 @@ public class ChicagoActivity extends AppCompatActivity {
         crust_type = (TextView) findViewById(R.id.crust_type);
         crust_type.setText("Pan");
     }
-
+    /**
+     * When called it changes the different text boxes to the needed toppings,crust and prices
+     * according to how a Meatzza pizza is structured. Also disables the add/remove toppings buttons
+     * because the toppings should already preset.
+     */
     void selectMeatzza() {
         selectToppings.setEnabled(false);
         addTop.setEnabled(false);
@@ -276,6 +326,11 @@ public class ChicagoActivity extends AppCompatActivity {
         crust_type.setText("Stuffed");
     }
 
+    /**
+     * When called it changes the different text boxes to the needed toppings,crust and prices
+     * according to how a Build Your Own pizza is structured. This method also enables the add/remove
+     * buttons so that the user may select/deselect up to 7 toppings.
+     */
     void selectBuildYourOwn() {
         allToppings = new ArrayList<String>(Arrays.asList("sausage", "bbq chicken", "beef", "ham", "pepperoni", "green pepper",
                 "onion", "mushroom", "provolone", "cheddar","olive","pineapple","bacon")) ;

@@ -1,3 +1,8 @@
+/**
+ * This class displays/sets up all the images/options for every pizza flavor, current store order, and
+ *
+ * @author Nick Lluen, Ahnaf Rashid
+ */
 package com.example.ru_pizzeria_android;
 
 import androidx.appcompat.app.ActionBar;

@@ -1,3 +1,9 @@
+/**
+ * The StoreOrderActivity is meant to hold all the methods for modifying all the store orders made by the user. It
+ * allows the user to remove any orders that they have selected.
+ *
+ * @author Nick Lluen, Ahnaf Rashid
+ */
 package com.example.ru_pizzeria_android;
 
 import static com.example.ru_pizzeria_android.MainActivity.totalOrders;
