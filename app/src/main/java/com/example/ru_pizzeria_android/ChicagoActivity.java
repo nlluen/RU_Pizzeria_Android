@@ -62,7 +62,8 @@ public class ChicagoActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 index = position;
-                view.setSelected(true);
+                String itemValue = (String) selected_toppings.getItemAtPosition( position );
+                Toast.makeText(getApplicationContext(),itemValue,Toast.LENGTH_LONG).show();
             }
         });
         sizeListener();
