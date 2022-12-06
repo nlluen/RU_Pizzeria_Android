@@ -5,6 +5,7 @@ import static com.example.ru_pizzeria_android.MainActivity.pizzaOrder;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -81,6 +82,9 @@ public class ChicagoActivity extends AppCompatActivity {
     public void addOrder(){
         pizzaOrder.add(chicPizza);
         Toast.makeText(getApplicationContext(),"Added to Order",Toast.LENGTH_LONG).show();
+        byoToppings.clear();
+        ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, byoToppings);
+        selected_toppings.setAdapter(Adapter);
         flavListener();
     }
 
@@ -273,6 +277,10 @@ public class ChicagoActivity extends AppCompatActivity {
     }
 
     void selectBuildYourOwn() {
+        allToppings = new ArrayList<String>(Arrays.asList("sausage", "bbq chicken", "beef", "ham", "pepperoni", "green pepper",
+                "onion", "mushroom", "provolone", "cheddar","olive","pineapple","bacon")) ;
+        topAdapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, allToppings);
+        selectToppings.setAdapter(topAdapter);
         selectToppings.setEnabled(true);
         addTop.setEnabled(true);
         removeTop.setEnabled(true);

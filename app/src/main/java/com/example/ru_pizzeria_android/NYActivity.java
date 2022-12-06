@@ -82,6 +82,9 @@ public class NYActivity extends AppCompatActivity {
     public void addOrder(){
         pizzaOrder.add(nyPizza);
         Toast.makeText(getApplicationContext(),"Added to Order",Toast.LENGTH_LONG).show();
+        byoToppings.clear();
+        ArrayAdapter<String> Adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, byoToppings);
+        selected_toppings.setAdapter(Adapter);
         flavListener();
     }
 
@@ -274,6 +277,10 @@ public class NYActivity extends AppCompatActivity {
     }
 
     void selectBuildYourOwn() {
+        allToppings = new ArrayList<String>(Arrays.asList("sausage", "bbq chicken", "beef", "ham", "pepperoni", "green pepper",
+                "onion", "mushroom", "provolone", "cheddar","olive","pineapple","bacon")) ;
+        topAdapter = new ArrayAdapter<String>(this, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, allToppings);
+        selectToppings.setAdapter(topAdapter);
         selectToppings.setEnabled(true);
         addTop.setEnabled(true);
         removeTop.setEnabled(true);
