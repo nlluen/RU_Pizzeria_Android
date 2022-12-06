@@ -19,7 +19,7 @@
     <string name="add_to_order2">Add to Order</string>
     <string name="button">Button</string>
     <string name="order_total">Order Total:</string>
-    <string name="store_order_total">TextView</string>
+    <string name="store_order_total">Order Total</string>
     <string name="cancel_order">Cancel Order</string>
     <string-array name="itemNames">
         <item>Chicago BBQ Chicken</item>
