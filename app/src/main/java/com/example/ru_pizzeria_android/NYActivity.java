@@ -49,7 +49,7 @@ public class NYActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chicago);
+        setContentView(R.layout.activity_ny);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         flavListener();
@@ -62,6 +62,7 @@ public class NYActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 index = position;
+                view.setSelected(true);
             }
         });
         sizeListener();
@@ -119,6 +120,11 @@ public class NYActivity extends AppCompatActivity {
                 }  else if (flavor.equalsIgnoreCase("Build Your Own")) {
                     selectBuildYourOwn();
                 }
+                size = sizeSpinner.getSelectedItem().toString();
+                nyPizza.setSize(size.toLowerCase(Locale.ROOT));
+                DecimalFormat decimalFormat = new DecimalFormat("###,##0.00");
+                pizza_price = (TextView) findViewById(R.id.pizza_price);
+                pizza_price.setText(String.valueOf(decimalFormat.format(nyPizza.price())));
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {}
