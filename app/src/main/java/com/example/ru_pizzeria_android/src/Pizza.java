@@ -43,7 +43,6 @@ public abstract class Pizza implements Customizable {
 
     /**
      This method will return the entire array list of toppings for the pizza
-     @return Arraylist<Topping> an array list that contains every topping on the pizza
      */
     public ArrayList<Topping> getToppings() {
         return toppings;

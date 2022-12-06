@@ -67,7 +67,6 @@ public class Order implements Customizable{
 
     /**
      * This method will return the pizzas in the arraylist
-     * @return Arraylist<Pizza> will return the array list of Pizza objects
      */
     public ArrayList<Pizza> getPizzas() {
         ArrayList<String> pizzaList = new ArrayList<String>();
@@ -79,7 +78,6 @@ public class Order implements Customizable{
 
     /**
      * This method will return the pizzas in the arraylist
-     * @return ArrayList<String> will return the array list of String objects
      */
     public ArrayList<String> getPizzaOrder(){
         ArrayList<String> pizzaOrder = new ArrayList<String>();

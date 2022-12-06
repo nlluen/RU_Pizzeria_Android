@@ -3,17 +3,13 @@ package com.example.ru_pizzeria_android;
 
 import static com.example.ru_pizzeria_android.MainActivity.orderNum;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -23,15 +19,7 @@ import java.util.ArrayList;
 
 /**
  * This is an Adapter class to be used to instantiate an adapter for the RecyclerView.
- * Must extend RecyclerView.Adapter, which will enforce you to implement 3 methods:
- *      1. onCreateViewHolder, 2. onBindViewHolder, and 3. getItemCount
- *
- * You must use the data type <thisClassName.yourHolderName>, in this example
- * <ItemAdapter.ItemHolder>. This will enforce you to define a constructor for the
- * ItemAdapter and an inner class ItemsHolder (a static class)
- * The ItemsHolder class must extend RecyclerView.ViewHolder. In the constructor of this class,
- * you do something similar to the onCreate() method in an Activity.
- * @author Lily Chang
+ * @author Ahnaf Rashid and Nick Lluen
  */
 class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder>{
     private Context context; //need the context to inflate the layout
@@ -44,9 +32,6 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder>{
 
     /**
      * This method will inflate the row layout for the items in the RecyclerView
-     * @param parent
-     * @param viewType
-     * @return
      */
     @NonNull
     @Override
@@ -91,12 +76,9 @@ class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsHolder>{
         public ItemsHolder(@NonNull View itemView) {
             super(itemView);
             tv_name = itemView.findViewById(R.id.tv_flavor);
-            im_item = itemView.findViewById(R.id.im_item);;
+            im_item = itemView.findViewById(R.id.im_item);
             parentLayout = itemView.findViewById(R.id.rowLayout);
 
-            /** set onClickListener for the row layout,
-             * clicking on a row will navigate to another Activity
-             */
             parentLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
